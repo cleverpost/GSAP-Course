@@ -35,7 +35,17 @@ let servicePercentPrice = Math.round(
 
 console.log(servicePercentPrice, 'процент подрядчику');
 
-
+if (fullPrice > 50000) {
+  console.log("Сделаем скидку 10%");
+} else if (fullPrice > 20000 && fullPrice < 50000) {
+  console.log("Сделаем скидку 5%");
+} else if (fullPrice > 0 && fullPrice < 20000) {
+  console.log("Скидка не предусмотрена");
+} else if (fullPrice < 0) {
+  console.log("Что-то пошло не так");
+} else {
+  console.log("Граничное значение цены");
+}
 
 
 //lesson2.3
@@ -55,9 +65,8 @@ console.log(fullPrice,'стоимость всех дополнительных 
 
 getTitle ()
 function getTitle (){
-    return titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
+    titleProject = titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
 }
-titleProject = getTitle();
 console.log (titleProject)
 
 
@@ -69,7 +78,7 @@ const servicePrice = getServicePercentPrices ();
 console.log(servicePrice, 'моя сумма после вычета процента')
 
 
-
+getRollbackMessage ()
 function getRollbackMessage () {
     if (fullPrice > 50000) {
   console.log('10%');
