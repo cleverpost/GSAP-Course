@@ -5,7 +5,14 @@ let NewtitleProject = '';
 let titleProject;
 let screensValue;
 let responsive;
+let service1;
+let service2
 
+
+
+const checkIsNumber = function(x){
+  return !isNaN(parseFloat(x)) && isFinite(x)
+}
 
 
 const asking = function (){
@@ -16,18 +23,33 @@ responsive = prompt ('нужен ли респонсивный сайт?(да/н
 asking ()
 
  
-let service1 = prompt('Какой сервис нужен?')
-let servicePrice1 = +prompt('Сколько это будет стоить?')
-let service2 = prompt('Какой еще сервис тебе нужен?')
-let servicePrice2 = +prompt('Сколько будет стоить этот второй сервис?')
+//let service1 = prompt('Какой сервис нужен?')
+//let servicePrice1 = +prompt('Сколько это будет стоить?')
+//let service2 = prompt('Какой еще сервис тебе нужен?')
+//let servicePrice2 = +prompt('Сколько будет стоить этот второй сервис?')
 
+const getAllServicePrices = function(){
+  let sum = 0
 
+  for (i = 0; i < 2; i++){
 
-//lesson2.4
+    if (i === 0){
+      service1 = prompt ('Какой дополнительный тип услуги нужен?', 'Услуга 1')
+    } else if (i === 1) {
+      service2 = prompt ('Какой дополнительный тип услуги нужен?', 'Услуга 2')
+    }
+    let textFromPromt = '';
 
-const getAllServicePrices = function () {
-   return  servicePrice1 + servicePrice2
+    while (!checkIsNumber(textFromPromt) || textFromPromt.trim() === '' || textFromPromt === null){
+      textFromPromt = prompt ('Сколько это будет стоить?')
+    }
+    sum = sum + Number(textFromPromt)
+  }
+  return sum
 }
+
+
+
 
 function getFullPrice () {
     return  screenPrice + allServicePrices
@@ -82,35 +104,10 @@ if (fullPrice > 50000) {
 // isNaN — спрашивает «это НЕ число?» 
 // ! — переворачивает ответ 
 
-function checkIsNumber(value) {
-  return !isNaN(value); } 
+// function checkIsNumber(value) {
+  //return !isNaN(value); } 
   
   // или c помощью parseFloat() — превращает ввод в число, если не получилось — вернёт NaN 
-  // // isFinite() — проверяет, что это реальное число 
+  // isFinite() — проверяет, что это реальное число 
   
-  function checkIsNumber2(value) {
-    return isFinite(parseFloat(value));
-  } while (
-    !checkIsNumber2(screenPrice) || // значение не число 
-    screenPrice === null || // пользователь нажал Отмена 
-    screenPrice.trim() === "" // пробелы 
-    ){ 
-      screenPrice = prompt ("Сколько будет стоить одна страница?"); 
-    }
-    
-    screenPrice = +screenPrice;
-    console.log(screenPrice); 
-    getAllServicePrices = function (){
-       let sum = 0;
-       for (let i = 0; i < 2; i++)
-        { let textFromPrompt;
-          while ( 
-            !checkIsNumber2(textFromPrompt) ||
-            textFromPrompt === null ||
-            textFromPrompt.trim() === "" ) 
-            { 
-              textFromPrompt = prompt("Сколько это будет стоить?");
-             } 
-             sum += +textFromPrompt; } 
-             return sum; 
-            }
+ 
