@@ -6,8 +6,9 @@ let titleProject;
 let screensValue;
 let responsive;
 let service1;
-let service2
-
+let service2;
+let fullPrice;
+let servicePercentPrice;
 
 
 const checkIsNumber = function(x){
@@ -31,7 +32,7 @@ asking ()
 const getAllServicePrices = function(){
   let sum = 0
 
-  for (i = 0; i < 2; i++){
+  for (let i = 0; i < 2; i++){
 
     if (i === 0){
       service1 = prompt ('Какой дополнительный тип услуги нужен?', 'Услуга 1')
@@ -40,7 +41,7 @@ const getAllServicePrices = function(){
     }
     let textFromPromt = '';
 
-    while (!checkIsNumber(textFromPromt) || textFromPromt.trim() === '' || textFromPromt === null){
+    while (textFromPromt === null ||  textFromPromt.trim() === '' ||  !checkIsNumber(textFromPromt)){
       textFromPromt = prompt ('Сколько это будет стоить?')
     }
     sum = sum + Number(textFromPromt)
