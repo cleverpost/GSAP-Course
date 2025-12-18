@@ -77,7 +77,6 @@ console.log(screensValue)
 console.log(responsive);
 console.log(service1)
 console.log(service2)
-
 console.log (allServicePrices,'стоимость всех дополнительных услуг')
 console.log(fullPrice,'стоимость всех дополнительных услуг и стоимость верстки')
 console.log(Math.ceil(servicePercentPrice), 'моя сумма после вычета процента подрядчику')
