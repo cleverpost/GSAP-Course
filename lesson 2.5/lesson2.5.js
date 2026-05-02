@@ -41,9 +41,20 @@ const getAllServicePrices = function(){
     }
     let textFromPromt = '';
 
-    while (textFromPromt === null ||  textFromPromt.trim() === '' ||  !checkIsNumber(textFromPromt)){
-      textFromPromt = prompt ('Сколько это будет стоить?')
-    }
+while (true) {
+  textFromPromt = prompt('Сколько это будет стоить?');
+
+  if (textFromPromt === null) {
+    alert('Вы нажали отмену');
+    continue;
+  }
+
+  textFromPromt = textFromPromt.trim();
+
+  if (textFromPromt !== '' && checkIsNumber(textFromPromt)) {
+    break; 
+  }
+}
     sum = sum + Number(textFromPromt)
   }
   return sum
@@ -61,6 +72,9 @@ const getServicePercentPrices = function () {
 }
 
 const getTitle = function (){
+   if (!titleProject || titleProject.trim() === '') {
+    return 'Без названия';
+  }
     return titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
 }
 
@@ -85,17 +99,16 @@ console.log (NewtitleProject)
 
 
 
-if (fullPrice > 50000) {
+if (fullPrice >= 50000) {
   console.log("Сделаем скидку 10%");
-} else if (fullPrice > 20000 && fullPrice < 50000) {
+} else if (fullPrice >= 20000) {
   console.log("Сделаем скидку 5%");
-} else if (fullPrice > 0 && fullPrice < 20000) {
+} else if (fullPrice >= 0) {
   console.log("Скидка не предусмотрена");
-} else if (fullPrice < 0) {
-  console.log("Что-то пошло не так");
 } else {
-  console.log("Граничное значение цены");
-}
+  console.log("Что-то пошло не так");
+} 
+
 
 
 // lesson2.5 
