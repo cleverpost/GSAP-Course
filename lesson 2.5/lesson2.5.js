@@ -41,20 +41,10 @@ const getAllServicePrices = function(){
     }
     let textFromPromt = '';
 
-while (true) {
+while (!checkIsNumber(textFromPromt) || textFromPromt.trim() === ''|| textFromPromt === null)  {
   textFromPromt = prompt('Сколько это будет стоить?');
 
-  if (textFromPromt === null) {
-    alert('Вы нажали отмену');
-    continue;
-  }
-
-  textFromPromt = textFromPromt.trim();
-
-  if (textFromPromt !== '' && checkIsNumber(textFromPromt)) {
-    break; 
-  }
-}
+ }
     sum = sum + Number(textFromPromt)
   }
   return sum
